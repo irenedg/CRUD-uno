@@ -9,6 +9,16 @@ package it.iad.crud;
  *
  * @author irene
  */
-public class ConfermaEvent implements Event{
+public class ConfermaEvent implements Event {
+
+    private boolean valido;
+
+    public ConfermaEvent(boolean valido) {
+        this.valido = valido;
+    }
+
+    public boolean isValido() {
+        return valido;
+    }
     
 }
