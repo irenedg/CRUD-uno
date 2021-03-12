@@ -2,9 +2,13 @@ package it.iad.crud;
 
 public class Automa implements State {
 
+    UIAutomabile gui;
+
     private State stato;
 
-    public Automa() {
+    public Automa(UIAutomabile gui) {
+        this.gui = gui;
+        stato = new RicercaState();
     }
 
     @Override
@@ -16,6 +20,10 @@ public class Automa implements State {
     }
 
     private class RicercaState implements State {
+
+        public RicercaState() {
+            gui.vaiStatoRicerca();
+        }
 
         @Override
         public void next(Event e) {
@@ -30,6 +38,10 @@ public class Automa implements State {
     }
 
     private class VisualizzaState implements State {
+
+        public VisualizzaState() {
+            gui.vaiStatoVisualizza();
+        }
 
         @Override
         public void next(Event e) {
@@ -52,15 +64,14 @@ public class Automa implements State {
 
     private class AggiungiState implements State {
 
+        public AggiungiState() {
+            gui.vaiStatoAggiungi();
+        }
+
         @Override
         public void next(Event e) {
             if (e instanceof ConfermaEvent) {
-                if (((ConfermaEvent) e).isValido()) {
-                    stato = new VisualizzaState();
-                } else {
-                    System.out.println("Conferma non valido");
-                    //gui.stampaMessaggio("Importo isufficiente: " + tot);
-                }
+                stato = new VisualizzaState();
             } else if (e instanceof AnnullaEvent) {
                 stato = new RicercaState();
             } else {
@@ -72,9 +83,13 @@ public class Automa implements State {
 
     private class RimuoviState implements State {
 
+        public RimuoviState() {
+            gui.vaiStatoRimuovi();
+        }
+
         @Override
         public void next(Event e) {
-             if (e instanceof AnnullaEvent) {
+            if (e instanceof AnnullaEvent) {
                 stato = new VisualizzaState();
             } else if (e instanceof ConfermaEvent) {
                 stato = new RicercaState();
@@ -86,6 +101,10 @@ public class Automa implements State {
     }
 
     private class ModificaState implements State {
+
+        public ModificaState() {
+            gui.vaiStatoModifica();
+        }
 
         @Override
         public void next(Event e) {
