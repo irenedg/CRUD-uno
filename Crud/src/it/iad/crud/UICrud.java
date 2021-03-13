@@ -15,6 +15,7 @@ public class UICrud extends javax.swing.JFrame
     public void vaiStatoRicerca() {
         jPanel1.setVisible(false);
         buttonNuova.setEnabled(true);
+        buttonNuova.setVisible(true);
         textCodice.setVisible(false);
         textDescrizione.setVisible(false);
         buttonModifica.setVisible(false);
@@ -25,7 +26,7 @@ public class UICrud extends javax.swing.JFrame
         buttoCerca.setVisible(true);
         buttonSeleziona.setVisible(true);
         jScrollPane2.setVisible(true);
-        
+
     }
 
     @Override
@@ -33,7 +34,11 @@ public class UICrud extends javax.swing.JFrame
         jPanel1.setVisible(true);
         buttonNuova.setEnabled(false);
         textCodice.setVisible(true);
+        textCodice.setText("");
+        textCodice.setEnabled(true);
         textDescrizione.setVisible(true);
+        textDescrizione.setText("");
+        textDescrizione.setEnabled(true);
         buttonModifica.setVisible(false);
         buttonConferma.setVisible(true);
         buttonAnnulla.setVisible(true);
@@ -48,11 +53,16 @@ public class UICrud extends javax.swing.JFrame
     public void vaiStatoVisualizza() {
         jPanel1.setVisible(true);
         buttonNuova.setEnabled(true);
+        buttonNuova.setVisible(true);
         textCodice.setVisible(true);
+        textCodice.setText("codice");
+        textCodice.setEnabled(false);
         textDescrizione.setVisible(true);
+        textDescrizione.setText("descrizione");
+        textDescrizione.setEnabled(false);
         buttonModifica.setVisible(true);
-        buttonConferma.setVisible(true);
-        buttonAnnulla.setVisible(true);
+        buttonConferma.setVisible(false);
+        buttonAnnulla.setVisible(false);
         buttonRimuovi.setVisible(true);
         textCerca.setVisible(true);
         buttoCerca.setVisible(true);
@@ -62,34 +72,40 @@ public class UICrud extends javax.swing.JFrame
 
     @Override
     public void vaiStatoModifica() {
-        buttonNuova.setVisible(false);
         jPanel1.setVisible(true);
+        buttonNuova.setEnabled(false);
+        textCodice.setVisible(true);
         textCodice.setEnabled(true);
+        textDescrizione.setVisible(true);
         textDescrizione.setEnabled(true);
         buttonModifica.setVisible(false);
-        buttonRimuovi.setVisible(false);
-        buttonAnnulla.setVisible(true);
         buttonConferma.setVisible(true);
-        textCerca.setEnabled(false);
+        buttonAnnulla.setVisible(true);
+        buttonRimuovi.setVisible(false);
+        textCerca.setVisible(false);
         buttoCerca.setVisible(false);
         buttonSeleziona.setVisible(false);
-        crudTable.setVisible(false);
+        jScrollPane2.setVisible(true);
     }
 
     @Override
     public void vaiStatoRimuovi() {
-        buttonNuova.setVisible(false);
         jPanel1.setVisible(true);
+        buttonNuova.setVisible(false);
+        textCodice.setVisible(true);
+        textCodice.setText("codice");
         textCodice.setEnabled(false);
+        textDescrizione.setVisible(true);
+        textDescrizione.setText("descrizione");
         textDescrizione.setEnabled(false);
         buttonModifica.setVisible(false);
-        buttonRimuovi.setVisible(false);
-        buttonAnnulla.setVisible(true);
         buttonConferma.setVisible(true);
+        buttonAnnulla.setVisible(true);
+        buttonRimuovi.setVisible(false);
         textCerca.setVisible(false);
         buttoCerca.setVisible(false);
-        buttonSeleziona.setVisible(false);
-        jScrollPane2.setVisible(false);
+        buttonSeleziona.setVisible(true);
+        jScrollPane2.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -251,7 +267,7 @@ public class UICrud extends javax.swing.JFrame
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(textCerca, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(buttoCerca)
                         .addGap(100, 100, 100)
                         .addComponent(buttonSeleziona))
@@ -273,7 +289,7 @@ public class UICrud extends javax.swing.JFrame
                     .addComponent(textCerca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttoCerca)
                     .addComponent(buttonSeleziona))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
